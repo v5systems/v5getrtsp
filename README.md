@@ -12,9 +12,6 @@ http://www.cs.fsu.edu/~engelen/soap.html
 
 https://www.genivia.com/products.html
 
-Initial gSOAP files were taken from https://github.com/tonyhu/gsoap-onvif.
-
-Thank you Tonyhu.
 
 # Building:
 Build was tested on Ubuntu.
