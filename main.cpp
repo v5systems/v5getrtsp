@@ -136,16 +136,15 @@ bool sendGetProfiles(MediaBindingProxy* tProxyMedia, _trt__GetProfiles * getProf
 		for (int i = 0; i < getProfilesResponse->Profiles.size(); i++){
 			if(verbosity>2)fprintf(stderr, "\t%d Name:%s\n\t\tToken:%s\n", i, getProfilesResponse->Profiles[i]->Name.c_str(),
                            getProfilesResponse->Profiles[i]->token.c_str());
-      profNames.push_back(getProfilesResponse->Profiles[i]->Name);
-      profTokens.push_back(getProfilesResponse->Profiles[i]->token);
 			tmpGetStreamUri->ProfileToken = getProfilesResponse->Profiles[i]->token;
-
 			if (SOAP_OK != soap_wsse_add_UsernameTokenDigest(tProxyMedia->soap, NULL, tmpLogin.c_str(),  tmpPass.c_str())){
 				return false;
 			}
 			if (false == sendGetStreamUri(tProxyMedia, tmpGetStreamUri, tmpGetStreamUriResponse))	{
-				return false;
+				continue;
 			}
+      profNames.push_back(getProfilesResponse->Profiles[i]->Name);
+      profTokens.push_back(getProfilesResponse->Profiles[i]->token);
 		}
 		return true;
 	}
