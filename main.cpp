@@ -233,6 +233,7 @@ int main(int argc, char **argv) {
   proxyDevice.soap->send_timeout=ONVIF_WAIT_TIMEOUT;
   proxyDevice.soap->connect_timeout=ONVIF_WAIT_TIMEOUT;
 
+/*
   _tds__GetWsdlUrl *tmpGetWsdlUrl = soap_new__tds__GetWsdlUrl(soap, -1);
   _tds__GetWsdlUrlResponse *tmpGetWsdlUrlResponse = soap_new__tds__GetWsdlUrlResponse(soap, -1);
 
@@ -249,6 +250,7 @@ int main(int argc, char **argv) {
     std::cout << outResults << std::endl;
     return -1;
   }
+*/
 
   _tds__GetCapabilities *tmpGetCapabilities = soap_new__tds__GetCapabilities(soap, -1);
   tmpGetCapabilities->Category.push_back(tt__CapabilityCategory__All);
